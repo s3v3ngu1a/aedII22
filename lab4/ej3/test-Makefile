@@ -1,0 +1,17 @@
+CFLAGS = -g -Wall -Werror -Wextra -pedantic -std=c99
+CC = gcc
+SRC = list.c test.c 
+OBJS = $(SRC:.c=.o)
+
+all: test
+
+objetos:
+	$(CC) $(CFLAGS) -c $(SRC)
+
+test: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
+
+clean:
+	rm -f test $(OBJS)
+
+.PHONY: clean
